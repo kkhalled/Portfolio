@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://khaledmahomud.com"),
+  metadataBase: new URL("https://khaled-contact-portfolio.vercel.app/"),
   title: "Khaled Mahomud — Frontend Developer",
   description:
     "Personal portfolio of Khaled Mahomud, a Computer Science graduate and frontend developer specializing in React, Next.js, and TypeScript.",
