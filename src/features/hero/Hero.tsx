@@ -10,7 +10,7 @@ export default function Hero() {
       variants={heroContainer}
       initial="hidden"
       animate="show"
-      className="flex pt-12 pb-18 flex-col "
+      className="flex pt-12 pb-22 flex-col "
     >
       <motion.p
         variants={heroItem}
