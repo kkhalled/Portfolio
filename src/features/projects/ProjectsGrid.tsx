@@ -57,6 +57,7 @@ export default function ProjectsGrid() {
                     alt={p.title}
                     width={600}
                     height={500}
+                    loading="lazy"
                     className="w-full object-cover transition-transform duration-700 group-hover:scale-102"
                   />
 

@@ -10,6 +10,7 @@ import BackToTop from "../ui/BackToTop";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { useMousePosition } from "../hooks/useMousePosition";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { mainReveal } from "../lib/animations";
 import { useSplash } from "../lib/SplashContext";
 
@@ -17,6 +18,40 @@ export default function AppShell() {
   const active = useScrollSpy();
   useMousePosition();
   const { splashDone } = useSplash();
+
+  // Mobile detection — mirrors the `lg` breakpoint (1024 px) in Tailwind
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(max-width: 1023px)").matches
+      : false,
+  );
+  const [sectionsReady, setSectionsReady] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 1023px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
+  // On mobile, trigger section reveals after the hero finishes animating.
+  // splashDone fires at ~3.6 s from mount; hero items complete around 5.8 s
+  // (delayChildren: 5 + stagger + item duration). A 2 s buffer after
+  // splashDone lands at ~5.6 s — right as the hero wraps up.
+  useEffect(() => {
+    if (!splashDone || !isMobile) return;
+    const t = setTimeout(() => setSectionsReady(true), 2000);
+    return () => clearTimeout(t);
+  }, [splashDone, isMobile]);
+
+  // Helper: motion props for each mobile section wrapper, staggered by `delay`
+  const mobileSection = (delay: number) => ({
+    initial: { opacity: 0, y: 30 } as const,
+    animate: sectionsReady
+      ? ({ opacity: 1, y: 0 } as const)
+      : ({ opacity: 0, y: 30 } as const),
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const, delay },
+  });
 
   return (
     <div className="min-h-screen bg-bg-primary font-sans text-text-primary">
@@ -39,11 +74,33 @@ export default function AppShell() {
       >
         <Hero />
 
-
-        <About />
-        <ExperienceList />
-        <ProjectsGrid />
-        <Contact />
+        {/*
+         * Mobile: sections cascade in one-by-one after the hero finishes.
+         * Desktop: each section keeps its own whileInView reveal (unchanged).
+         */}
+        {isMobile ? (
+          <>
+            <motion.div {...mobileSection(0.2)}>
+              <About />
+            </motion.div>
+            <motion.div {...mobileSection(0.5)}>
+              <ExperienceList />
+            </motion.div>
+            <motion.div {...mobileSection(0.8)}>
+              <ProjectsGrid />
+            </motion.div>
+            <motion.div {...mobileSection(1.1)}>
+              <Contact />
+            </motion.div>
+          </>
+        ) : (
+          <>
+            <About />
+            <ExperienceList />
+            <ProjectsGrid />
+            <Contact />
+          </>
+        )}
 
         {/* Footer */}
         <footer className="mt-8 border-t border-white/10 pt-8">
