@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fira_Code, Fira_Mono, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import SplashScreen from "@/src/ui/SplashScreen";
 import { SplashProvider } from "@/src/lib/SplashContext";
@@ -9,6 +9,25 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fira-code",
+});
+
+const firaMono = Fira_Mono({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fira-mono",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -54,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${firaCode.variable} ${firaMono.variable} ${robotoMono.variable}`}>
       <body>
         <a
           href="#main-content"

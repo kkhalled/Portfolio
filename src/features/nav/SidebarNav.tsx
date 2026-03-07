@@ -105,7 +105,9 @@ export default function SidebarNav({ active }: { active: string }) {
             className="block h-px w-6 bg-text-primary origin-center"
           />
           <motion.span
-            animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+            animate={
+              mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
+            }
             transition={{ duration: 0.2 }}
             className="block h-px w-6 bg-text-primary"
           />
@@ -129,11 +131,22 @@ export default function SidebarNav({ active }: { active: string }) {
             className="fixed inset-x-0 top-14 z-20 border-b border-white/10 bg-bg-primary/98 px-6 py-8 backdrop-blur-md lg:hidden"
           >
             {/* Identity */}
-            <motion.div variants={drawerContainer} initial="hidden" animate="show" className="mb-6">
-              <motion.p variants={drawerItem} className="font-bold text-text-primary">
+            <motion.div
+              variants={drawerContainer}
+              initial="hidden"
+              animate="show"
+              className="mb-6"
+            >
+              <motion.p
+                variants={drawerItem}
+                className="font-bold text-text-primary"
+              >
                 Khaled Mahomud
               </motion.p>
-              <motion.p variants={drawerItem} className="mt-0.5 text-sm text-accent-green">
+              <motion.p
+                variants={drawerItem}
+                className="mt-0.5 text-sm text-accent-green"
+              >
                 Frontend Developer
               </motion.p>
             </motion.div>
@@ -191,15 +204,15 @@ export default function SidebarNav({ active }: { active: string }) {
         variants={sidebarReveal}
         initial="hidden"
         animate={splashDone ? "show" : "hidden"}
-        className="fixed inset-y-0 left-0 z-20 hidden w-90 flex-col border-r border-white/10 bg-bg-primary lg:flex"
+        className="fixed inset-y-0 left-0 z-20 hidden w-80 flex-col border-r border-white/10 bg-bg-primary lg:flex"
       >
         {/* One unified wave container wrapping ALL content */}
         <motion.div
           variants={waveContainer}
-          className="flex flex-1 flex-col justify-center px-12 py-20"
+          className="flex flex-1 flex-col justify-center  px-12 "
         >
           {/* Identity */}
-          <div className="mb-16">
+          {/* <div className="mb-16">
             <motion.p variants={waveItem} className="text-lg font-bold text-text-primary">
               Khaled Mahomud
             </motion.p>
@@ -209,7 +222,7 @@ export default function SidebarNav({ active }: { active: string }) {
             <motion.p variants={waveItem} className="mt-3 max-w-60 text-[13px] leading-relaxed text-text-secondary">
               Building accessible, performant web experiences.
             </motion.p>
-          </div>
+          </div> */}
 
           {/* Navigation */}
           <nav className="space-y-6">
@@ -240,7 +253,7 @@ export default function SidebarNav({ active }: { active: string }) {
         {/* Social icons — part of the same wave via waveItem */}
         <motion.div
           variants={waveContainer}
-          className="flex items-center gap-5 border-t border-white/10 px-12 py-8"
+          className="flex items-center gap-5 px-12 pb-8"
         >
           {socials.map((s) => (
             <motion.a
@@ -250,7 +263,6 @@ export default function SidebarNav({ active }: { active: string }) {
               target="_blank"
               rel="noreferrer noopener"
               aria-label={s.label}
-              whileHover={{ y: -2, scale: 1.1 }}
               className="text-text-secondary transition-colors hover:text-accent-green"
             >
               {s.icon}

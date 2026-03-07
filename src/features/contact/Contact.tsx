@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import SectionHeading from "../../ui/SectionHeading";
 import { staggerContainer, staggerItem } from "../../lib/animations";
+import CustomButton from "@/src/ui/CustomButton";
+import { Mail } from "lucide-react";
 
 const EMAIL = "khaled.devcontact@gmail.com";
 
@@ -41,14 +43,16 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="mb-24 pt-10 md:mb-32"
+      className="mb-24 pt-16 md:mb-32"
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
     >
       <motion.div variants={staggerItem}>
-        <SectionHeading>Contact</SectionHeading>
+        <SectionHeading>
+          <h1 className="text-3xl text-white">Contact</h1>
+        </SectionHeading>
       </motion.div>
 
       <motion.div variants={staggerItem} className="max-w-xl">
@@ -71,34 +75,22 @@ export default function Contact() {
         {/* Body */}
         <p className="mt-5 text-[15px] leading-relaxed text-text-secondary">
           I&apos;m currently looking for frontend Developering roles and
-          freelance projects. Whether you have a position, a project, or
-          just want to connect — my inbox is always open. I&apos;ll do my
-          best to get back to you.
+          freelance projects. Whether you have a position, a project, or just
+          want to connect — my inbox is always open. I&apos;ll do my best to get
+          back to you.
         </p>
 
-        {/* Email CTA */}
-        <a
+        <motion.a
           href={`mailto:${EMAIL}`}
-          className="mt-8 inline-flex items-center gap-2 rounded-md border border-accent-cyan px-6 py-3 text-sm font-medium text-accent-cyan transition-all duration-200 hover:bg-accent-cyan/10 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2"
+          className="  mt-8 inline-flex text-sm  "
         >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          Say Hello
-        </a>
+          <CustomButton
+            icon={<Mail className="mr-2 h-4 w-4" />}
+            label="Let's Work Together"
+          />
 
-        <p className="mt-3 font-mono text-xs text-text-secondary">{EMAIL}</p>
+          {/* subtle glow layer */}
+        </motion.a>
       </motion.div>
 
       {/* Social links */}

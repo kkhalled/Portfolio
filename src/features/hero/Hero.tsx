@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { heroContainer, heroItem } from "../../lib/animations";
 import ButtonLink from "../../ui/Button";
+import CustomButton from "@/src/ui/CustomButton";
+import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -10,7 +12,7 @@ export default function Hero() {
       variants={heroContainer}
       initial="hidden"
       animate="show"
-      className="flex pt-12 pb-22 flex-col "
+      className="flex pt-12 flex-col h-dvh justify-center "
     >
       <motion.p
         variants={heroItem}
@@ -43,23 +45,12 @@ export default function Hero() {
       </motion.p>
 
       <motion.div variants={heroItem} className="mt-10 flex flex-wrap gap-4">
-        <ButtonLink href="/Resume.pdf" variant="primary">
-          View Resume
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"
-            />
-          </svg>
-        </ButtonLink>
+        <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <CustomButton
+            icon={<Download className="mr-2 h-4 w-4" />}
+            label="Resume"
+          />
+        </a>
         <ButtonLink
           href="mailto:khaled.devcontact@gmail.com?subject=Project%20Inquiry"
           variant="ghost"

@@ -7,6 +7,7 @@ import ExperienceList from "./experience/ExperienceList";
 import ProjectsGrid from "./projects/ProjectsGrid";
 import Contact from "./contact/Contact";
 import BackToTop from "../ui/BackToTop";
+import CustomCursor from "../ui/CustomCursor";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { useMousePosition } from "../hooks/useMousePosition";
 import { motion } from "motion/react";
@@ -55,6 +56,7 @@ export default function AppShell() {
 
   return (
     <div className="min-h-screen bg-bg-primary font-sans text-text-primary">
+      <CustomCursor />
       <div className="spotlight" aria-hidden="true" />
 
       <SidebarNav active={active} />
@@ -70,7 +72,7 @@ export default function AppShell() {
         variants={mainReveal}
         initial="hidden"
         animate={splashDone ? "show" : "hidden"}
-        className="relative z-10 ml-0 min-h-screen px-6 pt-20 pb-32 md:px-10 lg:ml-95 lg:px-16 lg:pt-28"
+        className="relative z-10 ml-0 min-h-screen px-6  pb-32 md:px-10 lg:ml-95 lg:px-16 "
       >
         <Hero />
 

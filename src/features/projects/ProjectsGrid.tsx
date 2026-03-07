@@ -10,7 +10,7 @@ export default function ProjectsGrid() {
   return (
     <motion.section
       id="projects"
-      className="mb-32 pt-10"
+      className="mb-32 pt-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
@@ -22,7 +22,7 @@ export default function ProjectsGrid() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <SectionHeading>Projects</SectionHeading>
+        <SectionHeading><h1 className="text-3xl text-white">Projects</h1></SectionHeading>
       </motion.div>
 
       <div className="mt-16 flex flex-col gap-32">
