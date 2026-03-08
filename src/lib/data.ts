@@ -5,7 +5,7 @@ export const aboutParagraphs = [
 
   "When working on projects, I focus on structure first: building reusable components, organizing UI logic clearly, and making sure the interface scales as features grow. I pay close attention to details like responsiveness, accessibility, and performance because they shape how people actually experience a product.",
 
-  "Most of my learning happens through building real applications and studying well-designed products. I enjoy breaking down how modern interfaces work, experimenting with different approaches, and continuously refining how I design and implement frontend systems."
+  "Most of my learning happens through building real applications and studying well-designed products. I enjoy breaking down how modern interfaces work, experimenting with different approaches, and continuously refining how I design and implement frontend systems.",
 ];
 
 export const coreTech = [
@@ -45,14 +45,7 @@ export const experiences: Experience[] = [
     url: "",
     description:
       "Completed intensive frontend development learning through project-based courses and hands-on applications. Built multiple responsive web interfaces while practicing JavaScript fundamentals, React component architecture, state management patterns, and API integration. Focused on translating UI designs into functional interfaces and strengthening debugging and problem-solving skills.",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Responsive Design",
-      "Git",
-    ],
+    tech: ["HTML", "CSS", "JavaScript", "React", "Responsive Design", "Git"],
   },
 
   {
@@ -62,13 +55,7 @@ export const experiences: Experience[] = [
     url: "",
     description:
       "Studying core computer science foundations including algorithms, data structures, and object-oriented programming while building practical software projects. Developed strong analytical thinking and experience with version control, debugging, and structured problem solving applied to real web development projects.",
-    tech: [
-      "JavaScript",
-      "OOP",
-      "Data Structures",
-      "Algorithms",
-      "Git",
-    ],
+    tech: ["JavaScript", "OOP", "Data Structures", "Algorithms", "Git"],
   },
 ];
 /**
@@ -83,7 +70,7 @@ export const featuredProjects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "REST API", "Context API"],
     image: "/freshcart.png",
     url: "https://fresh-cart-mauve-tau.vercel.app/",
-    github: "",
+    github: "https://github.com/kkhalled/FreshCart",
   },
   {
     title: "Rescufy — Smart Emergency Platform",
@@ -100,7 +87,7 @@ export const featuredProjects: Project[] = [
       "A social media web application with feed-style layouts, profile sections, and reusable UI components. Built with component-driven development principles, responsive layouts, and dynamic interface rendering to closely mirror real-world social platforms.",
     tech: ["React", "Tailwind CSS", "JavaScript"],
     image: "/social-hub.png",
-    url: "",
+    url: "https://social-hub-v1.vercel.app/",
     github: "https://github.com/kkhalled/Social-Hub",
   },
 ];
@@ -137,4 +124,3 @@ export const otherProjects: Project[] = [
     github: "https://github.com/kkhalled/Game-Reviews",
   },
 ];
-
