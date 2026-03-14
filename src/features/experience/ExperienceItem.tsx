@@ -1,4 +1,3 @@
-"use client";
 
 import { motion, type Variants } from "motion/react";
 import TechBadge from "../../ui/TechBadge";
