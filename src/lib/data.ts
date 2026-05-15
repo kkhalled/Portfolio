@@ -78,8 +78,8 @@ export const featuredProjects: Project[] = [
       "Concept and prototype for a smart emergency response platform that connects users with nearby emergency services. Focused on fast incident reporting, intelligent routing to appropriate responders, and improving emergency response efficiency with modern web technologies.",
     tech: ["React", "Next.js", "Node.js", "MongoDB", "REST API"],
     image: "/rescufy.png",
-    url: "",
-    github: "",
+    url: "https://rescufy.vercel.app/",
+    github: "https://github.com/kkhalled/Rescufy",
   },
   {
     title: "Social Hub",
