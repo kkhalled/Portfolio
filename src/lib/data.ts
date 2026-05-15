@@ -76,7 +76,7 @@ export const featuredProjects: Project[] = [
     title: "Rescufy — Smart Emergency Platform",
     description:
       "Concept and prototype for a smart emergency response platform that connects users with nearby emergency services. Focused on fast incident reporting, intelligent routing to appropriate responders, and improving emergency response efficiency with modern web technologies.",
-    tech: ["React", "Next.js", "Node.js", "MongoDB", "REST API"],
+    tech: ["React", "REST API", "Tailwind CSS", "TypeScript", "SignalR"],
     image: "/rescufy.png",
     url: "https://rescufy.vercel.app/",
     github: "https://github.com/kkhalled/Rescufy",
@@ -85,7 +85,7 @@ export const featuredProjects: Project[] = [
     title: "Social Hub",
     description:
       "A social media web application with feed-style layouts, profile sections, and reusable UI components. Built with component-driven development principles, responsive layouts, and dynamic interface rendering to closely mirror real-world social platforms.",
-    tech: ["React", "Tailwind CSS", "JavaScript"],
+    tech: ["React", "Tailwind CSS", "TypeScript"],
     image: "/social-hub.png",
     url: "https://social-hub-v1.vercel.app/",
     github: "https://github.com/kkhalled/Social-Hub",
